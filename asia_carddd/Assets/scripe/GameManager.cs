@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public float turn = 1.5f;
     [Header("縮放"), Range(0f, 5f)]
     public float size = 0.3f;
+    [Header("女動畫元件")]
+    public Animator aniWoman;
+    [Header("男動畫元件")]
+    public Animator aniMan;
 
 
     private void Start()
@@ -29,7 +33,13 @@ public class GameManager : MonoBehaviour
         man.Rotate(0, joystick.Horizontal * turn, 0);
 
         women.localScale += new Vector3(1, 1, 1) * joystick.Vertical * size ;    }
-
+    public void Attack()
+    {
+        print("攻擊");
+        aniWoman.SetTrigger("女生攻擊");
+        print("死亡");
+        aniWoman.SetTrigger("女生死亡");
+    }
 
 
 
